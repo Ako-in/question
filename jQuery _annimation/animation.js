@@ -52,22 +52,3 @@ $(function(){
 
 });
 
-$(function(){
-  
-});
-
-
-$(function(){
-  
-});
-
-$(function(){
-  
-});
-
-$(function(){
-  $('#slideToggle').on('click',function(){
-
-  });
-});
-
