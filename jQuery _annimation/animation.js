@@ -35,11 +35,11 @@
 // アニメーション(2):slideUp/slideDown/slideToggle
 $(function(){
   $('#fadeIn').on('click',function(){
-    $('.box').css('opacity',0);
+    $('.box').css('opacity',1);
   });
 
   $('#fadeOut').on('click',function(){
-    $('.box').css('opacity',1);
+    $('.box').css('opacity',0);
   });
 
   $('#slideUp').on('click',function(){
