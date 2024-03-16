@@ -33,8 +33,8 @@ $('#submit').on('click',function(event){
 
 // フォーカスが外れた時(=blurイベント)にフォームの入力をチェックする
 $('#name').blur(function(){
-  // console.log('blur');
   inputCheck();
+  console.log('blurイベント反応なし？');
 });
 $('#furigana').blur(function(){
   inputCheck();
@@ -67,17 +67,21 @@ function inputCheck(){
   let error = false;
 
   // 名前欄が空欄の時
-  if($('#name').val()=''){
-    // エラーがある時
-    error=true;
-    //エラーが発生している宣言
+  if($('#name').val()==''){
+    // エラーがある時、フォームを赤にする
     $('#name').css('background-color','#f79999');
+    error=true;
+    console.log('エラーあり');
+    //エラーが発生している宣言
+    
     //フォームを赤にする
     
     message+='お名前を入力してください。\n';
+    console.log(message);
     //エラーメッセージを出力する
     } else {
     // エラーがない時
+    console.log('エラーなし');
     $('#name').css('background-color','#fafafa');
   }
   
@@ -98,12 +102,12 @@ function inputCheck(){
     $('#message').css('background-color','#fafafa');
   }
 
-  if($('#email').val()='' || $('#email').val().indexOf('@')== -1 || $('#email').val().indexOf('.')==-1) {
+  if($('#email').val()=='' || $('#email').val().indexOf('@')== -1 || $('#email').val().indexOf('.')==-1) {
     $('#email').css('background-color','#f79999');
     error=true;
     message+='メールアドレスが未記入、または@.が含まれていません。\n';
     } else {
     $('#email').css('background-color','#fafafa');
   }
-  }
+  
 };
