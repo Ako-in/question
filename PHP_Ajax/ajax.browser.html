@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHP基礎-Ajax-</title>
+</head>
+<body>
+  <button id="refresh-btn">更新</button>
+  <div id="outputDiv">SAMURAI</div>
+  <script>
+    const refreshBtn = document.getElementById('refresh-btn');
+    const outputDiv = document.getElementById('outputDiv');
+    let intervalId;//定期実行のチェック用変数
+
+    // 非同期通信でサーバー側からデータを取得する関数
+    function fetchFromServer(){
+      // 送信するデータ
+      const dispData = {
+        name: outputDiv.textContent
+      };
+
+      //サーバー側にAjaxリクエストを送信
+      fetch('ajax-server.php',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(dispData)//JSON形式に変換
+      })
+
+      //サーバー側からAjaxレスポンスを受け取った時の処理
+      .then((response)=>response.json())//JSON形式に変換
+      .then((data)=>{
+        //受け取ったデータを表示
+        outputDiv.textcontent = data.message;
+      })
+    }
+    //更新ボタンがクリックされた時のイベント
+    refreshBtn.addEventListener('click',()=>{
+      //定期実行中(IDが０でないなら)停止
+      if(intervalId){
+        //定期実行を停止
+        clearInterval(intervalId);
+        intervalId = 0;
+        refreshBtn.textContent = '更新';//ボタン表示切り替え
+      }else{
+        //1秒ごとの定期実行を開始し、そのIDを記録
+        intervalId = setInterval(fetchFromServer, 1000);
+        refreshBtn.textContent = '停止';//ボタン表示切り替え
+      }
+    });
+  </script>
+  
+</body>
+</html>
