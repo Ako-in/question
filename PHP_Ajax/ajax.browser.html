@@ -20,23 +20,26 @@
       const dispData = {
         name: outputDiv.textContent
       };
-
+      console.log(JSON.stringify(dispData));
       //サーバー側にAjaxリクエストを送信
+      console.log('サーバー側にAjaxリクエストを送信前');
       fetch('ajax-server.php',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify(dispData)//JSON形式に変換
       })
-
+      
       //サーバー側からAjaxレスポンスを受け取った時の処理
       .then((response)=>response.json())//JSON形式に変換
       .then((data)=>{
         //受け取ったデータを表示
-        outputDiv.textcontent = data.message;
+        outputDiv.textContent = data.message;
       })
     }
+    
     //更新ボタンがクリックされた時のイベント
     refreshBtn.addEventListener('click',()=>{
+      console.log('クリックイベント');
       //定期実行中(IDが０でないなら)停止
       if(intervalId){
         //定期実行を停止
@@ -49,6 +52,8 @@
         refreshBtn.textContent = '停止';//ボタン表示切り替え
       }
     });
+
+    
   </script>
   
 </body>
