@@ -1,0 +1,113 @@
+/* index.php */
+header{
+  
+  background-color:#d13617;
+  
+  padding: 15px;
+}
+
+nav a{
+  text-decoration: none;
+  color: white;
+  padding-left: 100px;
+}
+
+.home{
+  text-align: center;
+}
+
+.btn{
+  background-color: #e1c530;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+footer{
+  text-align: center;
+  background-color:#fafafa;
+  padding: 10px;
+}
+
+/* read.php */
+.products-table{
+  width: 100%;
+  border-collapse: collapse;/* 下線を横一本繋げる初期値：separate切り離し */
+  
+}
+
+
+.products-table tr:first-child{
+  border-bottom: solid 3px #d9d9d9;
+}
+.products-table tr{ 
+  text-align: center;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+
+
+.table-row{
+  text-align: center;
+  
+}
+
+.products-ui{
+  margin-bottom: 30px;
+  text-align: center;
+  display: flex;
+}
+
+
+.sort-img{
+  width: 30px;
+ vertical-align: top;
+  
+}
+
+.btn{
+  text-align: center;
+
+}
+.products h1{
+  text-align: center;
+  /* padding: 1rem; */
+}
+
+/* create.php */
+/* 戻るボタンの装飾 */
+
+/* 登録ボタンの装飾 */
+.submit-btn{
+  background-color: #e1c530;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+}
+
+/* フォームの装飾 */
+.registration-form div{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  text-align: center;
+}
+
+.registration-form input{
+  text-decoration: center;
+}
+
+
+.registration-form label{
+  margin-top: 10px;
+  
+}
+
+
