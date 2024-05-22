@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->integer('price')->unsigned();
-            $table->integer('category_id')->unsigned();
+            // $table->integer('price')->unsigned();
+            // $table->integer('category_id')->unsigned();
+            $table->string('major_category_name');
             $table->timestamps();
         });
     }
